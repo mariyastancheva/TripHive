@@ -13,10 +13,12 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const app = express();
-
+const compression = require('compression');
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+
+app.use(compression())
 // Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -48,10 +50,7 @@ app.use(hpp({
     whiteList: ['duration', 'price', 'difficulty', 'maxGroupSize', 'ratingsAverage', 'ratingsQuantity']
 }));
 
-// app.use((req, res, next)=>{
-//     console.log(req.cookies);
-//     next();
-// })
+
 // Providing routes
 app.use('/', viewRouter);
 app.use('/api/v1/tours', tourRouter);

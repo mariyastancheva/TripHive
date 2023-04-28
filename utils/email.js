@@ -33,7 +33,6 @@ module.exports = class Email {
 
   // Send the actual email
   async send(template, subject) {
-    try{
     // 1) Render HTML based on a pug template
     const html = pug.renderFile(`${__dirname}/../views/email/${template}.pug`, {
         firstName: this.firstName,
@@ -52,11 +51,7 @@ module.exports = class Email {
   
       // 3) Create a transport and send email
       await this.newTransport().sendMail(mailOptions);
-    }catch(err){
-        console.log(err);
     }
-
-  }
 
   async sendWelcome() {
     await this.send('welcome', 'Welcome to the TripHive Family!');

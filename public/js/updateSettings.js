@@ -7,7 +7,7 @@ export const updateData = async (data, type) => {
         const partialUrl = type === 'password' ? 'updatePassword' : 'updateMe';
         const res = await axios({
             method:'PATCH',
-            url: 'http://localhost:3000/api/v1/users/' + partialUrl,
+            url: '/api/v1/users/' + partialUrl,
             data,
             headers: {
                 'Access-Control-Allow-Origin': '*',
