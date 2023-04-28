@@ -6,7 +6,8 @@
   "scripts": {
     "delete-db-data": "node ./dev-data/data/import-dev-data.js --delete",
     "import-db-data": "node ./dev-data/data/import-dev-data.js --import",
-    "start": "nodemon server.js --sourcemap",
+    "dev": "nodemon server.js --sourcemap",
+    "start": "node server.js",
     "start:prod": "set NODE_ENV=production&& nodemon server.js --sourcemap",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
@@ -40,5 +41,9 @@
   "devDependencies": {
     "nodemon": "^2.0.22",
     "parcel-bundler": "^1.12.5"
+  },
+  "engines":{
+    "node": ">=16.0.0"
   }
+
 }
