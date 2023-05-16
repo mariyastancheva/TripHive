@@ -38,7 +38,7 @@ if(signupForm){
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const passwordConfirm = document.getElementById('passwordConfirm').value;
-        signup(name, email, password, passwordConfirm).finally(() => hideLoading);
+        signup(name, email, password, passwordConfirm).finally(() => hideLoading());
     })
 }
 if (loginForm) {
@@ -47,7 +47,7 @@ if (loginForm) {
         showLoading();
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-        login(email, password).finally(() => hideLoading);
+        login(email, password).finally(() => hideLoading());
     })
 }
 if (logOutBtn){

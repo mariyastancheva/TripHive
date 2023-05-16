@@ -12451,7 +12451,7 @@ if (signupForm) {
     var password = document.getElementById('password').value;
     var passwordConfirm = document.getElementById('passwordConfirm').value;
     (0, _login.signup)(name, email, password, passwordConfirm).finally(function () {
-      return hideLoading;
+      return hideLoading();
     });
   });
 }
@@ -12462,7 +12462,7 @@ if (loginForm) {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     (0, _login.login)(email, password).finally(function () {
-      return hideLoading;
+      return hideLoading();
     });
   });
 }
