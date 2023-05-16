@@ -9,7 +9,7 @@ module.exports = class Email {
     this.to = user.email;
     this.firstName = user.name.split(' ')[0];
     this.url = url;
-    this.from = `Mariya Stancheva <mariya.stancheva@abv.bg>`;
+    this.from = `Mariya Stancheva <mariya.stancheva@triphive.io>`;
   }
 
   newTransport() {
