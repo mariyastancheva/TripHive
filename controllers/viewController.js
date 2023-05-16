@@ -30,9 +30,7 @@ exports.getContact = (req, res) => {
     });
 };
 
-
 exports.getTour = catchAsyncError(async(req, res, next) => {
-    // const revertedName = req.params.slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
     const tour = await Tour.findOne({slug: req.params.slug}).populate({
         path: 'reviews', fields: 'review rating user'
     });

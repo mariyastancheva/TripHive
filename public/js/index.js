@@ -12,6 +12,17 @@ const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const bookBtn = document.getElementById('book-tour');
+
+// LOADING SPINNER
+const showLoading = () => {
+    document.getElementById('loader').style.display = 'flex';
+    document.getElementsByClassName('main')[0].style.display = 'none';
+}
+
+const hideLoading = () => {
+    document.getElementById('loader').style.display = 'none';
+    document.getElementsByClassName('main')[0].style.display = 'block';
+}
 // DELEGATION
 if (map){
     const locations = JSON.parse(map.dataset.locations);
@@ -22,19 +33,23 @@ if (map){
 if(signupForm){
     signupForm.addEventListener('submit', e =>{
         e.preventDefault();
+        showLoading();
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const passwordConfirm = document.getElementById('passwordConfirm').value;
         signup(name, email, password, passwordConfirm);
+        hideLoading();
     })
 }
 if (loginForm) {
     loginForm.addEventListener('submit', e =>{
         e.preventDefault();
+        showLoading();
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         login(email, password);
+        hideLoading();
     })
 }
 if (logOutBtn){
@@ -44,11 +59,13 @@ if (logOutBtn){
 if(userDataForm){
     userDataForm.addEventListener('submit', async e =>{
         e.preventDefault();
+        showLoading();
         const form = new FormData();
         form.append('name', document.getElementById('name').value);
         form.append('email', document.getElementById('email').value);
         form.append('photo', document.getElementById('photo').files[0]);
         await updateData(form, 'data');
+        hideLoading();
         window.location.reload(true);
     })
 }
@@ -56,6 +73,7 @@ if(userDataForm){
 if(userPasswordForm){
     userPasswordForm.addEventListener('submit', async (e) =>{
         e.preventDefault();
+        showLoading();
         const btn = document.querySelector('.btn--save-password');
         btn.textContent = 'Loading';
 
@@ -67,6 +85,7 @@ if(userPasswordForm){
         document.getElementById('password').value = '';
         document.getElementById('password-confirm').value = '';
         btn.textContent = 'SAVE PASSWORD';
+        hideLoading();
     })
 }
 

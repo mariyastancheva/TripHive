@@ -10,7 +10,7 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
-const hpp = require('hpp');
+// const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const app = express();
 const compression = require('compression');
@@ -46,9 +46,9 @@ app.use(mongoSanitize());
 app.use(xss());
 
 // Stands for HTTP Parameter Polution - not to do /tours?sort=price&sort=duration some of the fileds are  white listed in order to allow multiple of them
-app.use(hpp({
-    whiteList: ['duration', 'price', 'difficulty', 'maxGroupSize', 'ratingsAverage', 'ratingsQuantity']
-}));
+// app.use(hpp({
+//     whiteList: ['duration', 'price', 'difficulty', 'maxGroupSize', 'ratingsAverage', 'ratingsQuantity']
+// }));
 
 
 // Providing routes

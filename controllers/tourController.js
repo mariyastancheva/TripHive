@@ -51,7 +51,6 @@ exports.resizeTourImages = catchAsyncError(async (req, res, next) => {
 
 
 exports.aliasTopTours = (req, res, next) => {
-    //limit=5&sort=ratingsAverage,price
     req.query = {
         limit: '5',
         sort: 'ratingsAverage,price'
@@ -86,9 +85,6 @@ exports.getTourStats = catchAsyncError(async (req, res, next) => {
                 avgPrice: 1
             }
         },
-        // {
-        //     $match:{_id:{$ne: 'EASY'}}
-        // }
     ]);
     res.status(200).json({
         status: 'success',
