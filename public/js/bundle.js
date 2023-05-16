@@ -12450,8 +12450,9 @@ if (signupForm) {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     var passwordConfirm = document.getElementById('passwordConfirm').value;
-    (0, _login.signup)(name, email, password, passwordConfirm);
-    hideLoading();
+    (0, _login.signup)(name, email, password, passwordConfirm).finally(function () {
+      return hideLoading;
+    });
   });
 }
 if (loginForm) {
@@ -12460,8 +12461,9 @@ if (loginForm) {
     showLoading();
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
-    (0, _login.login)(email, password);
-    hideLoading();
+    (0, _login.login)(email, password).finally(function () {
+      return hideLoading;
+    });
   });
 }
 if (logOutBtn) {
@@ -12521,8 +12523,9 @@ if (userPasswordForm) {
             document.getElementById('password').value = '';
             document.getElementById('password-confirm').value = '';
             btn.textContent = 'SAVE PASSWORD';
+            a;
             hideLoading();
-          case 14:
+          case 15:
           case "end":
             return _context2.stop();
         }

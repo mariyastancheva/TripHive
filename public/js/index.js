@@ -38,8 +38,7 @@ if(signupForm){
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const passwordConfirm = document.getElementById('passwordConfirm').value;
-        signup(name, email, password, passwordConfirm);
-        hideLoading();
+        signup(name, email, password, passwordConfirm).finally(() => hideLoading);
     })
 }
 if (loginForm) {
@@ -48,8 +47,7 @@ if (loginForm) {
         showLoading();
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-        login(email, password);
-        hideLoading();
+        login(email, password).finally(() => hideLoading);
     })
 }
 if (logOutBtn){
@@ -84,7 +82,7 @@ if(userPasswordForm){
         document.getElementById('password-current').value = '';
         document.getElementById('password').value = '';
         document.getElementById('password-confirm').value = '';
-        btn.textContent = 'SAVE PASSWORD';
+        btn.textContent = 'SAVE PASSWORD';a
         hideLoading();
     })
 }
